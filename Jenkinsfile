@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('code checkout') {
             steps {
-                git branch: 'master', url:' https://github.com/up1/maven_java_web_example.git', credentialId: 'jenkins-git'
+                git branch: 'master', url:' https://github.com/up1/maven_java_web_example.git', credentialsId: 'jenkins-git'
 		sh 'ls'
 		
             }
