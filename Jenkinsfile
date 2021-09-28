@@ -15,7 +15,7 @@ pipeline {
         }
 	    stage('Docker image creation') {
 		    steps {
-			    dockerImage = docker.build registry + ":$BUILD_NUMBER"
+			    dockerImage = docker.build registry + ":${BUILD_NUMBER}"
 		    }
 	    }
 	    stage('IDocker mage Push') {
