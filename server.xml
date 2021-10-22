@@ -126,7 +126,7 @@
 
 		scheme="https" secure="true" SSLEnabled="true"
 
-		keystoreFile="/etc/keys/tomcat.test.jks" keystorePass="password"
+		keystoreFile="conf/tomcat.test.jks" keystorePass="password"
 
 		clientAuth="false" keyAlias="tomcat" sslProtocol="TLS"/> 
 
