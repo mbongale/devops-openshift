@@ -92,7 +92,7 @@
 
 		keystoreFile="conf/tomcat.test.jks" keystorePass="password"
 
-		clientAuth="false" keyAlias="tomcat" sslProtocol="TLS"/>
+		clientAuth="false" keyAlias="tomcat" sslProtocol="TLS" sslEnabledProtocols="TLSv1,TLSv1.1,TLSv1.2" />
     <!-- Define an AJP 1.3 Connector on port 8009 -->
     <!--Connector port="8009" protocol="AJP/1.3" redirectPort="8443" -->
 
