@@ -1,4 +1,4 @@
-FROM jelastic/tomcat
+FROM tomcat:8.0
 COPY target/api.war /usr/local/tomcat/webapps/
 COPY tomcat.test.jks /usr/local/tomcat/conf
 #COPY server.xml /usr/local/tomcat/conf
