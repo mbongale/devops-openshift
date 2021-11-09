@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: devopspoc 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: devopspoc
+  template:
+    metadata:
+      labels:
+        app: devopspoc 
+    spec:
+      containers:
+        - name: devopspoc 
+          image: acrakspoc1.azurecr.io/devopspoc
+          ports:
+          - containerPort: 8444
