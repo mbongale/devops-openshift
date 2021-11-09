@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: acrakspoc-deployment
+  labels:
+    app: acrakspoc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: acrakspoc
+  template:
+    metadata:
+      labels:
+        app: acrakspoc
+    spec:
+      containers:
+        - name: acrakspoc-container
+          image: acrhclpoc1.azurecr.io/app1/mbongale/devops-openshift:40
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8444
