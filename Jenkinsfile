@@ -21,9 +21,7 @@ pipeline {
 				    dockerImage = docker.build acr_registry + ":${BUILD_NUMBER}"
 				    sh "docker login  ${env.acr_registry} --username acrakspoc1 --password YI4fNS=VgBzd4LXnuTxtMMkeO3ICGDpx"
 				   // sh "docker push $dockerImage"
-				     docker.withRegistry(acr_registry, acrCredetials ) {
-					    dockerImage.push()
-				    }
+				     sh "docker push acrakspoc1.azurecr.io/acrakspoc1:latest"
 			    }
 		    }
 	    }
