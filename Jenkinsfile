@@ -18,7 +18,7 @@ pipeline {
 	    stage('Docker image creation') {
 		    steps {
 			    script {
-				    dockerImage = docker.build acr_registry + ":${BUILD_NUMBER}"
+				    env.dockerImage = docker.build acr_registry + ":${BUILD_NUMBER}"
 			    }
 		    }
 	    }
