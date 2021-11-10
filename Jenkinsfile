@@ -2,7 +2,7 @@ pipeline {
     agent any
 	environment {
 		registry = "mbongale/devops-openshift"
-		acr_registry = "acrakspoc1.azurecr.io"
+		acr_registry = "acrakspoc1.azurecr.io/acrakspoc1"
 		acrCredetials = "azure-acr-login"
 		dockerImage = ''
 		registryCredentials = "docker-cred"
@@ -15,7 +15,7 @@ pipeline {
 	    		
             }
         }
-	   /* stage('Docker image creation and push') {
+	    stage('Docker image creation and push') {
 		    steps {
 			    script {
 				    dockerImage = docker.build acr_registry + ":${BUILD_NUMBER}"
@@ -24,7 +24,7 @@ pipeline {
 			    }
 		    }
 	    }
-	    stage('Docker mage Push') {
+	/*    stage('Docker mage Push') {
 		    steps {
 			    script {
 				    docker.withRegistry(acr_registry, acrCredetials ) {
@@ -36,11 +36,11 @@ pipeline {
 		    }
 	    } */
 	    
-	    stage('Build and Push to Azure Container Registry') { 
+	/*    stage('Build and Push to Azure Container Registry') { 
 		    app = docker.build('acrakspoc1.azurecr.io/acrakspoc1') 
 		    docker.withRegistry('https://acrakspoc1.azurecr.io', 'acrCredetials') { 
 			    app.push("${env.BUILD_NUMBER}") app.push('latest') 
 		    } 
-	    }
+	    } */
     }
 }
