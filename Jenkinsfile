@@ -25,7 +25,7 @@ pipeline {
 	    stage('Docker mage Push') {
 		    steps {
 			    script {
-				    docker.withRegistry('', acrCredetials ) {
+				    docker.withRegistry(acr_registry, acrCredetials ) {
 					    dockerImage.push()
 				    }
 				    
