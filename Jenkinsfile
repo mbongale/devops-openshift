@@ -15,14 +15,16 @@ pipeline {
 	    		
             }
         }
-	    stage('Docker image creation') {
+	    stage('Docker image creation and push') {
 		    steps {
 			    script {
-				    env.dockerImage = docker.build acr_registry + ":${BUILD_NUMBER}"
+				    dockerImage = docker.build acr_registry + ":${BUILD_NUMBER}"
+				    sh "docker login  ${env.acr_registry} --username acrakspoc1 --password YI4fNS=VgBzd4LXnuTxtMMkeO3ICGDpx"
+				    sh "docker push $dockerImage"
 			    }
 		    }
 	    }
-	    stage('Docker mage Push') {
+	   /* stage('Docker mage Push') {
 		    steps {
 			    script {
 				    /*docker.withRegistry(acr_registry, acrCredetials ) {
@@ -32,6 +34,6 @@ pipeline {
 				    sh "docker push ${env.dockerImage}"
 			    }
 		    }
-	    }
+	    } */
     }
 }
