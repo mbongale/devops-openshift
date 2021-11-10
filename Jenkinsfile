@@ -1,7 +1,7 @@
 pipeline {
     agent any
 	environment {
-		//registry = "mbongale/devops-openshift"
+		registry = "mbongale/devops-openshift"
 		acr_registry = "acrakspoc1.azurecr.io"
 		acrCredetials = "azure-acr-login"
 		dockerImage = ''
@@ -18,14 +18,14 @@ pipeline {
 	    stage('Docker image creation') {
 		    steps {
 			    script {
-				    dockerImage = docker.build registry + ":${BUILD_NUMBER}"
+				    dockerImage = docker.build acr_registry + ":${BUILD_NUMBER}"
 			    }
 		    }
 	    }
 	    stage('Docker mage Push') {
 		    steps {
 			    script {
-				    docker.withRegistry(acr_registry, acrCredetials ) {
+				    docker.withRegistry('', acrCredetials ) {
 					    dockerImage.push()
 				    }
 				    
