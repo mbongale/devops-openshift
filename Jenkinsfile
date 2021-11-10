@@ -20,7 +20,10 @@ pipeline {
 			    script {
 				    dockerImage = docker.build acr_registry + ":${BUILD_NUMBER}"
 				    sh "docker login  ${env.acr_registry} --username acrakspoc1 --password YI4fNS=VgBzd4LXnuTxtMMkeO3ICGDpx"
-				    sh "docker push $dockerImage"
+				   // sh "docker push $dockerImage"
+				     docker.withRegistry(acr_registry, acrCredetials ) {
+					    dockerImage.push()
+				    }
 			    }
 		    }
 	    }
