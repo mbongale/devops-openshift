@@ -27,9 +27,9 @@ pipeline {
 	   /* stage('Docker mage Push') {
 		    steps {
 			    script {
-				    /*docker.withRegistry(acr_registry, acrCredetials ) {
+				    docker.withRegistry(acr_registry, acrCredetials ) {
 					    dockerImage.push()
-				    }*/
+				    }
 				    sh "docker login  ${env.acr_registry} --username acrakspoc1 --password YI4fNS=VgBzd4LXnuTxtMMkeO3ICGDpx"
 				    sh "docker push ${env.dockerImage}"
 			    }
