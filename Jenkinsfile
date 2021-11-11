@@ -1,7 +1,7 @@
 pipeline {
     agent any
 	environment {
-		registry = "mbongale/devops-openshift"
+		registry = "devops-openshift"
 		acr_registry = "acrakspoc1.azurecr.io/acrakspoc1"
 		acrCredetials = "azure-acr-login"
 		dockerImage = ''
