@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: acrakspoc-container
-          image: acakspoc1.azurecr.io/acrakspoc1/devops-openshift:__Build.BuildId__
+          image: acrakspoc1.azurecr.io/acrakspoc1/devops-openshift:__Build.BuildId__
           imagePullPolicy: Always
           ports:
             - containerPort: 8444
