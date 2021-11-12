@@ -19,7 +19,7 @@ pipeline {
 		    steps {
 			    script {
 				    dockerImage = docker.build acr_registry + ":${BUILD_NUMBER}"
-				    withCredentials([usernamePassword(credentialsId: 'acrCredetials', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+				    withCredentials([usernamePassword(credentialsId: "${env.acrCredetials}", usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
 				    	sh "docker login  ${env.acr_registry} --username $USERNAME --password $PASSWORD"
 				    }
 				     sh "docker push acrakspoc1.azurecr.io/acrakspoc1:${BUILD_NUMBER}"
