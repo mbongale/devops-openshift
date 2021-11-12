@@ -19,29 +19,12 @@ pipeline {
 		    steps {
 			    script {
 				    dockerImage = docker.build acr_registry + ":${BUILD_NUMBER}"
-				    sh "docker login  ${env.acr_registry} --username acrakspoc1 --password YI4fNS=VgBzd4LXnuTxtMMkeO3ICGDpx"
-				   // sh "docker push $dockerImage"
+				    withCredentials([usernamePassword(credentialsId: 'amazon', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+				    	sh "docker login  ${env.acr_registry} --username $USERNAME --password $PASSWORD"
+				    }
 				     sh "docker push acrakspoc1.azurecr.io/acrakspoc1:${BUILD_NUMBER}"
 			    }
 		    }
 	    }
-	/*    stage('Docker mage Push') {
-		    steps {
-			    script {
-				    docker.withRegistry(acr_registry, acrCredetials ) {
-					    dockerImage.push()
-				    }
-				    sh "docker login  ${env.acr_registry} --username acrakspoc1 --password YI4fNS=VgBzd4LXnuTxtMMkeO3ICGDpx"
-				    sh "docker push ${env.dockerImage}"
-			    }
-		    }
-	    } */
-	    
-	/*    stage('Build and Push to Azure Container Registry') { 
-		    app = docker.build('acrakspoc1.azurecr.io/acrakspoc1') 
-		    docker.withRegistry('https://acrakspoc1.azurecr.io', 'acrCredetials') { 
-			    app.push("${env.BUILD_NUMBER}") app.push('latest') 
-		    } 
-	    } */
     }
 }
