@@ -7,8 +7,8 @@ pipeline
     
     environment
     {
-        registry = "devops-openshift"
-        acr_registry = "acrakspoc1.azurecr.io/acrakspoc1"
+        registry = "acrakspoc1/devops-openshift"
+        acr_registry = "acrakspoc1.azurecr.io"
         acrCredetials = "azure-acr-login"
         dockerImage = ''
         registryCredentials = "docker-cred"
