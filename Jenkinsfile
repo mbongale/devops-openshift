@@ -7,7 +7,7 @@ pipeline
     
     environment
     {
-        imageName = "devops-openshift"
+        imageName = "acrakspoc1/devops-openshift"
         acr_registry = "acrakspoc1.azurecr.io/acrakspoc1"
         acrCredetials = "azure-acr-login"
         dockerImage = ''
