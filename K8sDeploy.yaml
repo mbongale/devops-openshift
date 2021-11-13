@@ -16,12 +16,10 @@ spec:
     spec:
       containers:
         - name: acrakspoc-container
-          image: acrakspoc1.azurecr.io/acrakspoc1:latest
+          image: acrakspoc1.azurecr.io/acrakspoc1/devops-openshift:latest
           imagePullPolicy: Always
           ports:
-            - containerPort: 8444
-      imagePullSecrets:
-        - name: regsecret            
+            - containerPort: 8444           
 ---
 apiVersion: v1
 kind: Service
