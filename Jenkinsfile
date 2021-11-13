@@ -30,12 +30,12 @@ pipeline
             {
                 script
                 {
-                    dockerImage = docker.build acr_registry + ":latest"
+                    dockerImage = docker.build registry + ":latest"
                     withCredentials([usernamePassword(credentialsId: "${env.acrCredetials}", usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')])
                     {
                         sh "docker login  ${env.acr_registry} --username $USERNAME --password $PASSWORD"
                     }
-                    sh "docker push acrakspoc1.azurecr.io/acrakspoc1:latest"
+                    sh "docker push acrakspoc1.azurecr.io/acrakspoc1/devops-openshift:latest"
                 }
             }
         }
