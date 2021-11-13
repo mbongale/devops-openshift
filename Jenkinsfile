@@ -1,6 +1,10 @@
 pipeline 
 {
-    agent any
+    agent
+    {
+       label 'mypoc'
+    }
+    
     environment
     {
         registry = "devops-openshift"
