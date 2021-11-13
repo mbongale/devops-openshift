@@ -7,7 +7,7 @@ pipeline
     
     environment
     {
-        imageName = "acrakspoc1/devops-openshift"
+        imageName = "acrakspoc1.azurecr.io/acrakspoc1/devops-openshift"
         acr_registry = "acrakspoc1.azurecr.io/acrakspoc1"
         acrCredetials = "azure-acr-login"
         dockerImage = ''
@@ -36,8 +36,8 @@ pipeline
                     {
                         sh "docker login  ${env.acr_registry} --username $USERNAME --password $PASSWORD"
                     }
-                    //sh "docker push acrakspoc1.azurecr.io/acrakspoc1/devops-openshift:latest"
-                    sh "docker push acrakspoc1/devops-openshift:latest"                    
+                    sh "docker push acrakspoc1.azurecr.io/acrakspoc1/devops-openshift:latest"
+                    //sh "docker push acrakspoc1/devops-openshift:latest"                    
                 }
             }
         }
