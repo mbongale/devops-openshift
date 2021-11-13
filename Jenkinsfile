@@ -7,8 +7,8 @@ pipeline
     
     environment
     {
-        registry = "acrakspoc1/devops-openshift"
-        acr_registry = "acrakspoc1.azurecr.io"
+        registry = "devops-openshift"
+        acr_registry = "acrakspoc1.azurecr.io/acrakspoc1"
         acrCredetials = "azure-acr-login"
         dockerImage = ''
         registryCredentials = "docker-cred"
@@ -30,12 +30,12 @@ pipeline
             {
                 script
                 {
-                    dockerImage = docker.build registry + ":latest"
+                    dockerImage = docker.build acr_registry + ":latest"
                     withCredentials([usernamePassword(credentialsId: "${env.acrCredetials}", usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')])
                     {
                         sh "docker login  ${env.acr_registry} --username $USERNAME --password $PASSWORD"
                     }
-                    sh "docker push acrakspoc1.azurecr.io/acrakspoc1/devops-openshift:latest"
+                    sh "docker push acrakspoc1.azurecr.io/acrakspoc1:latest"
                 }
             }
         }
