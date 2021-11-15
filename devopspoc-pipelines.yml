@@ -12,7 +12,7 @@ variables:
 
   # Container registry service connection established during pipeline creation
   dockerRegistryServiceConnection: '52670024-cc29-4670-acd7-0b2cad20d474'
-  imageRepository: 'devops-openshift'
+  imageRepository: 'devopsopenshift'
   containerRegistry: 'acrakspoc1.azurecr.io'
   dockerfilePath: '**/Dockerfile'
   tag: '$(Build.BuildId)'
